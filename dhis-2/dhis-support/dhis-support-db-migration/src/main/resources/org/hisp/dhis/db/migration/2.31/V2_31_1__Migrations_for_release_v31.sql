@@ -48,7 +48,7 @@ update trackedentitytype SET featuretype = 'NONE' where featuretype is null;
 update program SET featuretype = 'POINT' where capturecoordinates = true AND featuretype is null;
 update program SET featuretype = 'NONE' where capturecoordinates = false AND featuretype is null;
 
-update programinstance SET geometry = ST_GeomFromText('POINT(' || longitude || ' ' || latitude || ')', 4326) where longitude is not null AND latitude is not null AND geometry is null;
+--update programinstance SET geometry = ST_GeomFromText('POINT(' || longitude || ' ' || latitude || ')', 4326) where longitude is not null AND latitude is not null AND geometry is null;
 
 alter table programinstance drop column if exists latitude;
 alter table programinstance drop column if exists longitude;
