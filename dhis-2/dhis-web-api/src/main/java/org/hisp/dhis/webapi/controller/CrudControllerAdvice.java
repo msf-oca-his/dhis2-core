@@ -109,6 +109,8 @@ public class CrudControllerAdvice
     @InitBinder
     protected void initBinder( WebDataBinder binder )
     {
+        String[] denylist = new String[]{"class.*", "Class.*", "*.class.*", "*.Class.*"};
+        binder.setDisallowedFields(denylist);
         binder.registerCustomEditor( Date.class, new PropertyEditorSupport()
         {
             @Override
